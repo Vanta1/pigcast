@@ -29,7 +29,7 @@
         buildInputs = with pkgs; [
           # !! needed libraries go here
           xdotool
-          openssl
+          # openssl
           cairo
           gdk-pixbuf
           pango
