@@ -6,19 +6,21 @@ use dioxus::{
 };
 
 fn main() {
-    let window = WindowBuilder::new()
-        .with_title("Pigcast")
-        .with_decorations(false);
+    let config = {
+        let window = WindowBuilder::new()
+            .with_title("Pigcast")
+            .with_decorations(false);
 
-    let style = include_str!("../res/style.css");
-    let head = format!(
-        r#"
+        let style = include_str!("../res/style.css");
+        let head = format!(
+            r#"
             <title>Pigcast</title>
             <style>{style}</style>
         "#
-    );
+        );
 
-    let config = Config::new().with_window(window).with_custom_head(head);
+        Config::new().with_window(window).with_custom_head(head)
+    };
 
     dioxus::LaunchBuilder::new().with_cfg(config).launch(App);
 }
