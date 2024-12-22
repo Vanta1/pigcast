@@ -2,7 +2,7 @@
 name = "pigcast"
 default_platform = "desktop"
 out_dir = "dist"
-asset_dir = "assets"
+asset_dir = "res"
 
 [web.app]
 title = "pigcast"

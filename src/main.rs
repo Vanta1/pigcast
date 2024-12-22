@@ -10,7 +10,7 @@ fn main() {
         .with_title("Pigcast")
         .with_decorations(false);
 
-    let style = include_str!("../assets/style.css");
+    let style = include_str!("../res/style.css");
     let head = format!(
         r#"
             <title>Pigcast</title>
