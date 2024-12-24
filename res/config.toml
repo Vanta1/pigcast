@@ -1,0 +1,5 @@
+[feed."Chapo Trap House"]
+url = "http://feeds.soundcloud.com/users/soundcloud:users:211911700/sounds.rss"
+
+[feed."Bonus Episode Feed"]
+url = "https://www.patreon.com/rss/cumtown?auth=j3xaET0GblYVwSIMxBXw2EXVvUu14_gR"

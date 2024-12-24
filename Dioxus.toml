@@ -9,7 +9,7 @@ title = "pigcast"
 
 [web.watcher]
 reload_html = true
-watch_path = ["src", "assets"]
+watch_path = ["src", "res"]
 
 [web.resource]
 style = []

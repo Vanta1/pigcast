@@ -1,13 +1,40 @@
 body {
-    background-color: #272e33;
+    margin: 0;
+    padding: 0;
+    background-color: #1e2326;
 }
 
 #main {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #d3c6aa;
+    color: #D3C6AA;
+    width: "100%";
+    font-family: Open Sans;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 100vh;
+}
+
+.sidebar {
+    grid-column: 1;
+    grid-row: 1;
+    width: 7rem;
+    /* border-right: 2px solid #272e33; */
+    overflow-y: scroll;
+    padding-left: .5rem;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: .2rem;
+    /* TODO: Make this scrollbar on the left side of the window, i think that might look cool */
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #272e33;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #7a8478;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #D3C6AA;
 }
