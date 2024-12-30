@@ -33,9 +33,9 @@ fn main() {
 
 #[component]
 fn App() -> Element {
-    use_context_provider(|| Config::from_file("./res/config.toml".to_string()));
+    let config = use_signal(|| Config::from_file("./res/config.toml".to_string()));
 
     rsx! {
-        Sidebar {  }
+        Sidebar { config: config }
     }
 }

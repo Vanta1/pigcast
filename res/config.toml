@@ -1,3 +1,7 @@
+[settings]
+config_dir = "$HOME/.config/pigcast/"
+cache_dir = "$HOME/.pigcast/cache/"
+
 [feed."Chapo Trap House"]
 url = "http://feeds.soundcloud.com/users/soundcloud:users:211911700/sounds.rss"
 
