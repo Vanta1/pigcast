@@ -23,7 +23,6 @@
         pkgs = import nixpkgs {
           inherit system overlays;
         };
-        # !! toolchain goes here
         rustToolchain = pkgs.pkgsBuildHost.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
         nativeBuildInputs = with pkgs; [pkg-config rustToolchain];
         buildInputs = with pkgs; [
