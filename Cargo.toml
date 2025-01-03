@@ -10,4 +10,5 @@ edition = "2021"
 
 dioxus = { version = "0.6", features = ["desktop"] }
 serde = { version = "1.0", features = ["derive"] }
+thiserror = "2.0.9"
 toml = "0.8.19"

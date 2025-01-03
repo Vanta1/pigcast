@@ -2,6 +2,7 @@ use dioxus::{desktop::WindowBuilder, prelude::*};
 
 mod components;
 mod config;
+mod error;
 
 use components::sidebar::Sidebar;
 use config::Config;
@@ -31,7 +32,8 @@ fn main() {
 
 #[component]
 fn App() -> Element {
-    let config = use_signal(|| Config::from_file("./res/config.toml".to_string()));
+    let config =
+        use_signal(|| Config::from_file("./res/conig.toml".to_string()).unwrap_or_default());
 
     rsx! {
         Sidebar { config: config }

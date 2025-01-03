@@ -3,10 +3,24 @@ use std::fs::read_to_string;
 use serde::{Deserialize, Serialize};
 use toml::Table;
 
+use crate::error::PigError;
+
 #[derive(Clone, Debug, Deserialize, Serialize, PartialEq)]
 pub struct Settings {
     config_dir: String,
     cache_dir: String,
+}
+
+impl Default for Settings {
+    fn default() -> Self {
+        let config_dir = "~/.config/pigcast".to_string();
+        let cache_dir = "~/.pigcast/cache".to_string();
+
+        Self {
+            config_dir,
+            cache_dir,
+        }
+    }
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize, PartialEq)]
@@ -20,18 +34,15 @@ struct FeedInfo {
     url: String,
 }
 
-#[derive(Clone, Deserialize, PartialEq)]
+#[derive(Clone, Deserialize, PartialEq, Default)]
 pub struct Config {
     settings: Settings,
     feeds: Vec<Feed>,
 }
 
 impl Config {
-    pub fn from_file(path: String) -> Self {
-        let data: Table = read_to_string(path)
-            .expect("failed to open config file")
-            .parse()
-            .unwrap();
+    pub fn from_file(path: String) -> Result<Self, PigError> {
+        let data: Table = read_to_string(path)?.parse()?;
 
         let settings: Settings =
             toml::from_str(&data["settings"].as_table().unwrap().to_string()).expect("cant parse");
@@ -51,10 +62,10 @@ impl Config {
             })
             .collect();
 
-        Self { settings, feeds }
+        Ok(Self { settings, feeds })
     }
 
-    pub fn settings(&self) -> &Settings {
+    pub fn _settings(&self) -> &Settings {
         &self.settings
     }
 
