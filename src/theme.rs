@@ -1,7 +1,7 @@
 // TODO: remove
 #![allow(dead_code)]
 
-use gpui::{Rgba, rgb};
+use gpui::{Rems, Rgba, rems, rgb};
 
 #[derive(Copy, Clone)]
 pub struct PigTheme {
@@ -10,6 +10,7 @@ pub struct PigTheme {
     pub bg2: Rgba,
     pub fg: Rgba,
     pub gray: Rgba,
+    pub border_thickness: Rems,
 }
 
 impl PigTheme {
@@ -32,6 +33,10 @@ impl PigTheme {
     pub fn gray(&self) -> Rgba {
         self.gray
     }
+
+    pub fn border_thickness(&self) -> Rems {
+        self.border_thickness
+    }
 }
 
 pub fn default_theme() -> PigTheme {
@@ -45,5 +50,6 @@ fn everforest_dark_hard() -> PigTheme {
         bg2: rgb(0x374145),
         fg: rgb(0xd3c6aa),
         gray: rgb(0x859289),
+        border_thickness: rems(0.2),
     }
 }

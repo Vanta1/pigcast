@@ -1,6 +1,8 @@
 use std::{fs, path::PathBuf};
 
-use gpui::{App, Application, AssetSource, SharedString, WindowOptions, prelude::*};
+use gpui::{
+    Application, AssetSource, KeyBinding, SharedString, WindowOptions, actions, prelude::*,
+};
 
 mod elements;
 mod root;
@@ -35,13 +37,24 @@ impl AssetSource for PigResources {
     }
 }
 
+actions!(pig, [Quit]);
+
 fn main() {
+    env_logger::init();
+
     Application::new()
         .with_assets(PigResources {
             base: PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("res"),
         })
-        .run(|cx: &mut App| {
+        .run(|cx| {
             let theme = crate::theme::default_theme();
+
+            cx.activate(true);
+            cx.on_action(|_: &Quit, cx| cx.quit());
+            cx.bind_keys([
+                // KeyBinding::new("q", Quit, None), // convenient for testing
+                KeyBinding::new("ctrl-c", Quit, None),
+            ]);
 
             cx.open_window(
                 WindowOptions {

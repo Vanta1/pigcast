@@ -23,12 +23,10 @@ impl Render for PigControls {
             .flex_row()
             .justify_center()
             .items_center()
-            .border_t(rems(0.2))
-            .border_color(self.theme.bg1())
             .child(
                 svg()
                     .path("icons/backward.svg")
-                    .size(icon_size - rems(0.0))
+                    .size(icon_size)
                     .text_color(icon_color),
             )
             .child(
@@ -36,13 +34,13 @@ impl Render for PigControls {
                     .ml(rems(0.6))
                     .mr(rems(0.5))
                     .path("icons/play.svg")
-                    .size(icon_size + rems(0.0))
+                    .size(icon_size)
                     .text_color(icon_color),
             )
             .child(
                 svg()
                     .path("icons/forward.svg")
-                    .size(icon_size - rems(0.0))
+                    .size(icon_size)
                     .text_color(icon_color),
             )
     }
