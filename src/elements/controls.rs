@@ -1,4 +1,4 @@
-use gpui::{DefiniteLength, div, prelude::*, rems};
+use gpui::{DefiniteLength, div, prelude::*, rems, svg};
 
 use crate::theme::PigTheme;
 
@@ -16,7 +16,10 @@ impl Render for PigControls {
         div()
             .h(rems(3.))
             .w(DefiniteLength::Fraction(1.))
+            .flex()
+            .justify_center()
             .border_t_1()
             .border_color(self.theme.bg1())
+            .child(svg().path("icons/play.svg").size_10())
     }
 }
